@@ -38,7 +38,7 @@ function LoginOnly(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/login-signup/login", userLogin)
+      .post("/login-signup/login", userLogin)
       .then((resp) => {
         // swal2.fire("Please Wait");
         // swal2.showLoading();

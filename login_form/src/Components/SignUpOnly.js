@@ -38,7 +38,7 @@ function SignUpOnly(props) {
     // console.log(signup);
 
     axios
-      .post("http://localhost:5000/login-signup/signup", userSignup)
+      .post("/login-signup/signup", userSignup)
       .then((resp) => {
         // swal(resp.data);
         if (resp.data == "User_Created") {
