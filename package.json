@@ -1,0 +1,30 @@
+{
+  "name": "login-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client-npm": "npm install --prefix login_form",
+    "start": "node server",
+    "mon": "nodemon server",
+    "client": "npm start --prefix login_form",
+    "dev": "concurrently \"npm run mon\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix login_form && npm run build --prefix login_form"
+  },
+  "keywords": [],
+  "author": "Ritik Patil",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  }
+}

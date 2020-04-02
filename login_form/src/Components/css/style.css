@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f6f5f7;
+  font-family: "Baloo Da 2", cursive;
+}
+
+h1 {
+  margin: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 20px;
+}
+
+.container {
+  width: 700px;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  height: 480px;
+  border-radius: 10px;
+  box-shadow: 0 14px 20px rgba(0, 0, 0, 0.25), 0 14px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-panel form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.social a {
+  border: solid 1px #ddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 5px;
+  height: 40px;
+  width: 40px;
+}
+
+button {
+  margin: 10px;
+  border-radius: 25px;
+  border: 1px solid #ff4b2b;
+  background: #ff4b2b;
+  color: white;
+  padding: 10px 45px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: transform 100ms ease-in;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+button:focus {
+  outline: none;
+}
+input {
+  background-color: #ebebeb;
+  color: black;
+  height: 30px;
+  line-height: 20px;
+  width: 250px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-css {
+  position: absolute;
+  height: 100px;
+  transition: all 400ms ease-in-out;
+}
+
+.login-form {
+  background: white;
+  height: 100%;
+  left: 0;
+  width: 50%;
+  opacity: 1;
+  z-index: 200;
+  transition: transform 300ms ease-in-out;
+}
+
+.signup-form {
+  background: white;
+  height: 100%;
+  left: 0;
+  width: 50%;
+  opacity: 1;
+  z-index: 1;
+  transition: transform 300ms ease-in-out;
+}
+
+.overlay-container {
+  top: -20px;
+  left: 50%;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  transition: transform 300ms ease-in-out;
+}
+
+.overlay {
+  background-color: #ff4b2b;
+  background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+  color: white;
+  position: relative;
+  left: -100%;
+  height: 120%;
+  width: 200%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+}
+
+/* Sign-up to right */
+.right {
+  transform: translateX(350px);
+  transition: transform 0.3s ease-in-out;
+}
+.left {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes popdown {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+  }
+}
+
+.popup {
+  animation: popup 0.5s 1 alternate;
+}
+
+.popdown {
+  animation: popup 0.5s 1 alternate;
+}
+
+.login-text,
+.signup-text {
+  margin-left: 20px;
+}
