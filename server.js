@@ -23,10 +23,10 @@ app.use("/login-signup", loginform);
 
 if (process.env.NODE_ENV === "production") {
   // Static Folder
-  app.use(express.static("login-form/build"));
+  app.use(express.static("login_form/build"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "login-form", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "login_form", "build", "index.html"));
   });
 }
 
