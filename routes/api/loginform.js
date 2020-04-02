@@ -25,14 +25,14 @@ router.get("/", async (req, res) => {
 });
 
 // Get Specific User
-router.get("/:id", async (req, res) => {
-  try {
-    const specuser = await Users.findById(req.params.id);
-    res.json(specuser);
-  } catch (err) {
-    res.status(404).json({ Error: "Can't Find User" });
-  }
-});
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const specuser = await Users.findById(req.params.id);
+//     res.json(specuser);
+//   } catch (err) {
+//     res.status(404).json({ Error: "Can't Find User" });
+//   }
+// });
 
 // Post User
 router.post("/signup", async (req, res) => {
