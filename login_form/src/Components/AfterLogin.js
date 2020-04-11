@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { LoggedContext } from "../App";
+import Cookie from "js-cookie";
 
 function AfterLogin() {
   const [islogged, setLogged] = useContext(LoggedContext);
 
   const loginHandler = () => {
     setLogged(false);
+    Cookie.remove("user");
   };
   return (
     <div>

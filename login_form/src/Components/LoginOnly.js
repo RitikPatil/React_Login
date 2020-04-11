@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
   faGithub,
-  faInstagram
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 import { json } from "body-parser";
 import swal from "sweetalert";
 import swal2 from "sweetalert2";
 import AfterLogin from "./AfterLogin";
+import Cookies from "js-cookie";
 
 import { LoggedContext } from "../App";
 
@@ -19,20 +20,20 @@ function LoginOnly(props) {
 
   const [login, setLogin] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const inputHandler = (e) => {
     const name = e.target.name;
     setLogin({
       ...login,
-      [name]: e.target.value
+      [name]: e.target.value,
     });
   };
 
   const userLogin = {
     email: login.email,
-    password: login.password
+    password: login.password,
   };
 
   const submitHandler = (e) => {
@@ -45,14 +46,15 @@ function LoginOnly(props) {
         if (resp.data == "Success") {
           swal({
             title: "SuccessFully Loged In",
-            icon: "success"
+            icon: "success",
           });
+          Cookies.set("user", "LoggedIn", { expires: 7 });
           setLogged(true);
         } else {
           swal({
             title: resp.data,
             icon: "warning",
-            dangerMode: true
+            dangerMode: true,
           });
         }
       })
