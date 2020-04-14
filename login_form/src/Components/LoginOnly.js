@@ -13,10 +13,11 @@ import swal2 from "sweetalert2";
 import AfterLogin from "./AfterLogin";
 import Cookies from "js-cookie";
 
-import { LoggedContext } from "../App";
+import { LoggedContext, NameContext } from "../App";
 
 function LoginOnly(props) {
   const [islogged, setLogged] = useContext(LoggedContext);
+  const [name, setName] = useContext(NameContext);
 
   const [login, setLogin] = useState({
     email: "",
@@ -48,7 +49,16 @@ function LoginOnly(props) {
             title: "SuccessFully Loged In",
             icon: "success",
           });
-          Cookies.set("user", "LoggedIn", { expires: 7 });
+          // Cookies.set("user", "LoggedIn", { expires: 7 });
+
+          axios.post("/login-signup/token", userLogin).then((resp) => {
+            // Local Storage
+            localStorage.setItem("user", "LoggedIn");
+            // Cookie
+            Cookies.set("name", resp.data);
+
+            setName("R");
+          });
           setLogged(true);
         } else {
           swal({

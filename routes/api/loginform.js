@@ -8,6 +8,10 @@ const { userValidation, loginValidation } = require("../../validation");
 
 const bcrypt = require("bcryptjs");
 
+const Cookie = require("js-cookie");
+
+const jwt = require("jsonwebtoken");
+
 // Get All USers
 
 router.get("/", async (req, res) => {
@@ -107,6 +111,16 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     res.send(err);
   }
+});
+
+router.post("/token", async (req, res) => {
+  // res.send(req.body.email);
+  const user = await Users.findOne({ email: req.body.email });
+  const token = jwt.sign({ _id: user._id }, process.env.JWT_TOKEN);
+  res.header("Authorization", token);
+  res.send(user.firstname);
+  res.end();
+  // res.send(token);
 });
 
 module.exports = router;
