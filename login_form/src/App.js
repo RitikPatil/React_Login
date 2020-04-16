@@ -11,15 +11,15 @@ function App() {
   const [islogged, setLogged] = useState(false);
   const [name, setName] = useState("");
 
-  const readStorage = () => {
-    const local = localStorage.getItem("user");
-    if (local) {
+  const readCookie = () => {
+    const cookieFound = Cookie.get("name");
+    if (cookieFound) {
       setLogged(true);
     }
   };
 
   useEffect(() => {
-    readStorage();
+    readCookie();
   }, []);
 
   return (

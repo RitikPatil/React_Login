@@ -52,10 +52,8 @@ function LoginOnly(props) {
           // Cookies.set("user", "LoggedIn", { expires: 7 });
 
           axios.post("/login-signup/token", userLogin).then((resp) => {
-            // Local Storage
-            localStorage.setItem("user", "LoggedIn");
             // Cookie
-            Cookies.set("name", resp.data);
+            Cookies.set("name", resp.data, { expires: 7 });
 
             setName("R");
           });

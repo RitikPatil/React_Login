@@ -10,7 +10,6 @@ function AfterLogin() {
     setLogged(false);
     // Cookie.remove("user");
     Cookie.remove("name");
-    localStorage.removeItem("user");
   };
 
   return (
