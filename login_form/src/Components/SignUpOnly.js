@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
   faFacebookF,
-  faInstagram
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import swal from "sweetalert";
 
@@ -15,14 +15,14 @@ function SignUpOnly(props) {
     firstname: "",
     lastname: "",
     newemail: "",
-    password: ""
+    password: "",
   });
 
   const inputHandler = (e) => {
     const name = e.target.name;
     setSignup({
       ...signup,
-      [name]: e.target.value
+      [name]: e.target.value,
     });
   };
 
@@ -30,7 +30,7 @@ function SignUpOnly(props) {
     firstname: signup.firstname,
     lastname: signup.lastname,
     email: signup.newemail,
-    password: signup.password
+    password: signup.password,
   };
 
   const submitHandler = (e) => {
@@ -45,13 +45,13 @@ function SignUpOnly(props) {
           swal({
             title: "User Created",
             text: "Login For More Stuff",
-            icon: "success"
+            icon: "success",
           });
         } else {
           swal({
             title: resp.data,
             icon: "warning",
-            dangerMode: true
+            dangerMode: true,
           });
         }
       })
@@ -59,7 +59,7 @@ function SignUpOnly(props) {
   };
 
   const opa = {
-    zIndex: 300
+    zIndex: 300,
   };
 
   const { isright, isleft } = props;
@@ -92,7 +92,6 @@ function SignUpOnly(props) {
           <div className="input-feild">
             <input
               type="text"
-              id="name"
               name="firstname"
               placeholder="FirstName"
               onChange={inputHandler}
@@ -101,7 +100,6 @@ function SignUpOnly(props) {
             <br />
             <input
               type="text"
-              id="lastname"
               placeholder="Lastname"
               name="lastname"
               onChange={inputHandler}
@@ -111,7 +109,6 @@ function SignUpOnly(props) {
 
             <input
               type="email"
-              id="email"
               name="newemail"
               placeholder="Email"
               onChange={inputHandler}
@@ -120,7 +117,6 @@ function SignUpOnly(props) {
             <br />
             <input
               type="password"
-              id="pass"
               placeholder="Password"
               name="password"
               onChange={inputHandler}

@@ -19,6 +19,7 @@ function LoginOnly(props) {
   const [islogged, setLogged] = useContext(LoggedContext);
   const [name, setName] = useContext(NameContext);
 
+  const [isProcessing, setProcessing] = useState(false);
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -39,6 +40,7 @@ function LoginOnly(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setProcessing(true);
     axios
       .post("/login-signup/login", userLogin)
       .then((resp) => {
@@ -64,6 +66,7 @@ function LoginOnly(props) {
             icon: "warning",
             dangerMode: true,
           });
+          setProcessing(false);
         }
       })
       .catch((err) => console.log(err));
@@ -102,7 +105,6 @@ function LoginOnly(props) {
           <div className="input-feild">
             <input
               type="email"
-              id="email"
               placeholder="Email"
               name="email"
               value={login.email}
@@ -111,7 +113,6 @@ function LoginOnly(props) {
             <br />
             <input
               type="password"
-              id="pass"
               placeholder="Password"
               name="password"
               value={login.password}
@@ -119,7 +120,13 @@ function LoginOnly(props) {
             />
             <br />
           </div>
-          <button type="submit">Login</button>
+          {isProcessing ? (
+            <button type="submit" disabled>
+              Processing ...
+            </button>
+          ) : (
+            <button type="submit">Login</button>
+          )}
         </form>
       </div>
     </div>

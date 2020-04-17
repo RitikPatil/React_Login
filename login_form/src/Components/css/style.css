@@ -75,6 +75,12 @@ button:active {
 button:focus {
   outline: none;
 }
+button:disabled {
+  transform: scale(1);
+  background: #e07663;
+  border: 1px solid #e07663;
+}
+
 input {
   background-color: #ebebeb;
   color: black;
