@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./css/style.css";
+import LoginImg from "./img/loginimg.svg";
+import Wave from "./img/wave.svg";
 
 import SignUpOnly from "./SignUpOnly";
 import LoginOnly from "./LoginOnly";
@@ -23,11 +25,18 @@ function LoginForm(props) {
   };
 
   return (
-    <div className="container">
-      {/* <Router> */}
-      <div className="form-panel">
-        {/* Using Switch */}
-        {/* <Switch>
+    <div>
+      <div id="realform">
+        <img id="wave" src={Wave} alt="wave" />
+      </div>
+      <div className="imgs">
+        <img id="loginimg" src={LoginImg} alt="login" />
+      </div>
+      <div className="container">
+        {/* <Router> */}
+        <div className="form-panel">
+          {/* Using Switch */}
+          {/* <Switch>
             <Route
               path="/"
               exact
@@ -40,19 +49,19 @@ function LoginForm(props) {
             />
           </Switch> */}
 
-        <LoginOnly isleft={isleft} isright={isright} />
-        <SignUpOnly isleft={isleft} isright={isright} />
-      </div>
-      <div className="overlay-container">
-        <div className="overlay">
-          {/* Login Text */}
+          <LoginOnly isleft={isleft} isright={isright} />
+          <SignUpOnly isleft={isleft} isright={isright} />
+        </div>
+        <div className="overlay-container">
+          <div className="overlay">
+            {/* Login Text */}
 
-          <LoginText
-            stateleft={[isleft, setLeft]}
-            stateright={[isright, setRight]}
-          />
+            <LoginText
+              stateleft={[isleft, setLeft]}
+              stateright={[isright, setRight]}
+            />
 
-          {/* <div
+            {/* <div
               className={`login-text  ${isright ? `popup` : ``}`}
               id="login-text"
             >
@@ -66,14 +75,14 @@ function LoginForm(props) {
               </Link>
             </div> */}
 
-          {/* SignUp Text */}
+            {/* SignUp Text */}
 
-          <SignupText
-            stateleft={[isleft, setLeft]}
-            stateright={[isright, setRight]}
-          />
+            <SignupText
+              stateleft={[isleft, setLeft]}
+              stateright={[isright, setRight]}
+            />
 
-          {/* <div
+            {/* <div
               className={`signup-text ${isleft ? `popup` : ``}`}
               id="signup-text"
             >
@@ -86,9 +95,10 @@ function LoginForm(props) {
                 </button>
               </Link>
             </div> */}
+          </div>
         </div>
+        {/* </Router> */}
       </div>
-      {/* </Router> */}
     </div>
   );
 }
